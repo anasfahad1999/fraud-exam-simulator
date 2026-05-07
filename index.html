@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>محاكي اختبار فاحص احتيال مالي - 100 سؤال</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700;800&display=swap');
+
     :root {
       --primary:#123a63;
       --primary-2:#0b5aa6;
@@ -25,7 +27,7 @@
     body {
       margin:0;
       min-height:100vh;
-      font-family: Tahoma, Arial, sans-serif;
+      font-family: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, Arial, sans-serif;
       background: radial-gradient(circle at top, #f8fbff, var(--bg));
       color:var(--text);
       padding:18px;
@@ -144,13 +146,13 @@
       position:relative;
     }
     .cover-hero:after {
-      content:"FRAUD EXAM";
+      content:"FINANCIAL FRAUD EXAMINER";
       position:absolute;
       left:24px;
       bottom:-10px;
-      font-size:58px;
+      font-size:44px;
       font-weight:900;
-      letter-spacing:2px;
+      letter-spacing:1px;
       color:rgba(255,255,255,.07);
       direction:ltr;
     }
@@ -185,10 +187,11 @@
       justify-content:space-between;
       gap:14px;
       flex-wrap:wrap;
-      background:#f8fafc;
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:13px 15px;
+      background:transparent;
+      border-top:1px solid var(--border);
+      border-radius:0;
+      padding:16px 0 0;
+      margin-top:4px;
     }
     .social-title { color:var(--primary); font-weight:800; }
     .social-links { display:flex; gap:9px; flex-wrap:wrap; }
@@ -241,6 +244,10 @@
       h1 { font-size:20px; }
       .timer { font-size:22px; }
     }
+    @media (max-width: 620px) {
+      .social-strip { justify-content:center; text-align:center; }
+      .social-links { justify-content:center; width:100%; }
+    }
     @media (max-width: 520px) {
       .q-grid { grid-template-columns:repeat(5, 1fr); }
       .actions button { width:100%; flex:auto; }
@@ -259,7 +266,7 @@
     <section class="card cover-card" id="coverArea">
       <div class="cover-hero">
         <div class="brand-badge">محاكاة تفاعلية احترافية</div>
-        <h1 class="cover-title">طريقك لاجتياز اختبار فحص الاحتيال المالي بنجاح.</h1>
+        <h1 class="cover-title">طريقك لاجتياز اختبار فاحص احتيال مالي بنجاح.</h1>
         <p class="cover-subtitle">محاكي تدريبي من 100 سؤال اختيار من متعدد، يجمع بين تجربة الاختبار الفعلية والمراجعة الذكية لرفع جاهزيتك قبل الاختبار.</p>
         <div class="brand-signature">بناء تدريبي مخصص للمراجعة المهنية المركزة <span>•</span> أنس المطيري</div>
       </div>
@@ -268,23 +275,6 @@
           <div class="marketing-box"><strong>تغطية شاملة</strong>تغطية شاملة لكافة محاور الاختبار: من غسل الأموال والفساد المالي إلى أساليب التحقيق والتحري المتقدمة.</div>
           <div class="marketing-box"><strong>محاكاة متكاملة</strong>محاكاة كاملة لضغط الوقت، مرونة التنقل بين الأسئلة، مع تحليل دقيق وشامل لأدائك النهائي.</div>
           <div class="marketing-box"><strong>مراجعة ذكية</strong>تعلّم من أخطائك: أدوات مراجعة ذكية تتيح لك التركيز على نقاط الضعف أو استعراض الحلول النموذجية لكامل الاختبار.</div>
-        </div>
-        <div class="social-strip">
-          <div>
-            <div class="social-title">تواصل معي عبر المنصات</div>
-            <div style="color:var(--muted);font-size:13px;margin-top:3px;">روابط مباشرة للتواصل والمتابعة المهنية.</div>
-          </div>
-          <div class="social-links" aria-label="روابط التواصل الاجتماعي">
-            <a href="https://wa.me/966536099030" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.1 1.6 5.9L0 24l6.5-1.7a11.7 11.7 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.4zM12.2 21.7h-.1c-1.7 0-3.4-.5-4.9-1.3l-.4-.2-3.8 1 1-3.7-.2-.4a9.7 9.7 0 0 1-1.5-5.2c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c0 5.4-4.4 9.8-9.7 9.8zm5.4-7.3c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4z"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/anas-almoutairi-4a4379236?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.4 8h4.2v15H.4V8zm7.4 0h4v2.05h.06c.56-1.06 1.94-2.18 4-2.18 4.28 0 5.07 2.82 5.07 6.48V23h-4.2v-7.67c0-1.83-.03-4.18-2.55-4.18-2.55 0-2.94 1.99-2.94 4.05V23h-4.2V8z" transform="translate(1 0) scale(.95)"/></svg>
-            </a>
-            <a href="https://x.com/anasfahad24" target="_blank" rel="noopener" title="X" aria-label="X">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.4L2.8 2h6.5l4.5 6 5.1-6zm-1.1 17.8h1.7L8.4 4.1H6.6l11.2 15.7z"/></svg>
-            </a>
-          </div>
         </div>
         <div>
           <h3 style="margin:0 0 10px;color:var(--primary);">اختر طريقة الاستخدام</h3>
@@ -304,6 +294,23 @@
         <div class="cover-actions">
           <button class="btn-success" id="startExamBtn">بدء المحاكي</button>
           <button class="btn-secondary" id="coverResetBtn">بدء جديد ومسح المحاولة السابقة</button>
+        </div>
+        <div class="social-strip">
+          <div>
+            <div class="social-title">تواصل معي عبر المنصات</div>
+            <div style="color:var(--muted);font-size:13px;margin-top:3px;">روابط مباشرة للتواصل والمتابعة المهنية.</div>
+          </div>
+          <div class="social-links" aria-label="روابط التواصل الاجتماعي">
+            <a href="https://wa.me/966536099030" target="_blank" rel="noopener" title="WhatsApp" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.5 4.1 1.6 5.9L0 24l6.5-1.7a11.7 11.7 0 0 0 5.6 1.4h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.2-1.2-6.1-3.5-8.4zM12.2 21.7h-.1c-1.7 0-3.4-.5-4.9-1.3l-.4-.2-3.8 1 1-3.7-.2-.4a9.7 9.7 0 0 1-1.5-5.2c0-5.4 4.4-9.8 9.8-9.8 2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 0 1 2.9 6.9c0 5.4-4.4 9.8-9.7 9.8zm5.4-7.3c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.3-.6-.4z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/anas-almoutairi-4a4379236?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.4 8h4.2v15H.4V8zm7.4 0h4v2.05h.06c.56-1.06 1.94-2.18 4-2.18 4.28 0 5.07 2.82 5.07 6.48V23h-4.2v-7.67c0-1.83-.03-4.18-2.55-4.18-2.55 0-2.94 1.99-2.94 4.05V23h-4.2V8z" transform="translate(1 0) scale(.95)"/></svg>
+            </a>
+            <a href="https://x.com/anasfahad24" target="_blank" rel="noopener" title="X" aria-label="X">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-5-6.5L6.2 22H3.1l7.3-8.4L2.8 2h6.5l4.5 6 5.1-6zm-1.1 17.8h1.7L8.4 4.1H6.6l11.2 15.7z"/></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
