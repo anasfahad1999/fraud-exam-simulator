@@ -1,0 +1,79 @@
+تقرير تحديث حماية ثغرة — حماية المحتوى والقضايا قدر الإمكان حسب البنية الحالية
+
+الهدف:
+- عدم الاعتماد على إخفاء الأزرار فقط.
+- نقل عمليات الحفظ والتعديل إلى Cloudflare Pages Functions المحمية.
+- تجهيز Cloudflare D1 ليكون مصدر الحفظ الحقيقي للقضايا ومحتوى الموقع.
+- عدم وضع إيميلات المطور أو كلمات مرور داخل JavaScript.
+
+ما تم تنفيذه:
+1) أضيف مزود محتوى الموقع:
+   - src/content/SiteContentProvider.tsx
+   - src/content/EditableText.tsx
+   - src/content/contentClient.ts
+
+2) تم لف التطبيق بـ SiteContentProvider داخل src/main.tsx.
+
+3) تم تحويل بعض نصوص الصفحة الرئيسية والفوتر إلى EditableText بمفاتيح ثابتة ومنظمة:
+   - home.hero.statement
+   - home.hero.description
+   - home.hero.supportingText
+   - footer.description
+   - footer.rights.notice
+   - footer.rights.republish
+   - footer.copyright
+   - footer.bottom.brand
+   - footer.bottom.description
+
+4) تم تفعيل API محمي لمحتوى الموقع:
+   - functions/api/content/index.js
+   - functions/api/content/[key].js
+
+5) تم إضافة مساعد D1 وسجل التدقيق:
+   - functions/_utils/db.js
+
+6) تم تحويل API القضايا من واجهات 501 إلى API حقيقي جاهز مع D1:
+   - GET /api/cases للمطور فقط
+   - POST /api/cases للمطور فقط
+   - GET /api/cases/:id للمطور فقط
+   - PUT /api/cases/:id للمطور فقط
+   - DELETE /api/cases/:id للمطور فقط
+
+7) تم ربط عمليات القضايا بالجداول التالية:
+   - cases
+   - case_timeline
+   - case_indicators
+   - case_documents
+   - case_references
+   - case_questions
+   - case_notes
+   - audit_log
+
+8) تم إضافة ملف seed اختياري لمحتوى الموقع:
+   - cloudflare/d1/seed_site_content.sql
+
+ما أصبح محميًا منطقيًا:
+- صفحة المطور محمية من جهة Cloudflare Functions.
+- عمليات حفظ محتوى الموقع محمية بصلاحية المطور من جهة الخادم.
+- عمليات إضافة/تعديل/حذف القضايا محمية بصلاحية المطور من جهة الخادم.
+- الإيميلات المصرح لها تبقى في متغير البيئة DEVELOPER_EMAILS ولا تُكتب في كود الواجهة.
+- كل تعديل حقيقي بعد تفعيل D1 يذهب إلى audit_log.
+
+ما الذي لا يزال يحتاج إعدادًا في Cloudflare:
+- ربط Supabase Auth عبر:
+  SUPABASE_URL
+  SUPABASE_ANON_KEY
+  DEVELOPER_EMAILS
+
+- إنشاء Cloudflare D1 binding باسم DB.
+- تنفيذ cloudflare/d1/schema.sql على قاعدة D1.
+- اختياري: تنفيذ cloudflare/d1/seed_site_content.sql للتجربة.
+
+أوامر الفحص:
+- تم تنفيذ TypeScript ضمن npm run build بنجاح.
+- تعذر إكمال build الافتراضي داخل بيئة العمل بسبب بطء terser/الوقت، لكن تم تنفيذ:
+  npx vite build --minify esbuild
+  ونجح البناء.
+
+ملاحظة أمنية مهمة:
+هذه المرحلة تحمي إدارة المحتوى والقضايا. حماية الاختبارات بالكامل تحتاج مرحلة مستقلة: نقل الأسئلة والإجابات والتصحيح إلى الخادم، حتى لا تكون الإجابات داخل JavaScript.
